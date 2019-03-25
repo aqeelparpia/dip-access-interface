@@ -27,7 +27,7 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379
     volumes:
       - .:/src
-    command: 'celery -A scope worker -l info'
+    command: 'watchmedo auto-restart -p *.py -R -- celery -A scope worker -l info'
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
