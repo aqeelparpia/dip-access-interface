@@ -158,6 +158,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
+    'npm.finders.NpmFinder',
 ]
 
 # Compress
@@ -166,6 +167,23 @@ COMPRESS_OFFLINE = not DEBUG
 COMPRESS_PRECOMPILERS = [
     ('text/x-scss', 'sassc {infile} {outfile}'),
 ]
+
+# NPM
+
+NPM_ROOT_PATH = BASE_DIR
+NPM_STATIC_FILES_PREFIX = 'lib'
+NPM_FILE_PATTERNS = {
+    '@fortawesome': ['fontawesome-free/webfonts/fa-solid-900.*'],
+    'bootstrap': ['dist/js/bootstrap.min.js'],
+    'bootstrap-datepicker': [
+        'dist/css/bootstrap-datepicker3.standalone.css',
+        'dist/js/bootstrap-datepicker.min.js',
+        'dist/locales/bootstrap-datepicker.fr.min.js',
+    ],
+    'jquery': ['dist/jquery.slim.min.js'],
+    'popper.js': ['dist/umd/popper.min.js'],
+    'typeface-roboto': ['files/roboto-latin-400.*'],
+}
 
 # Media
 

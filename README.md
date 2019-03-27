@@ -115,6 +115,7 @@ The following steps are just an example of how to run the application in a produ
 * Python 3.4 or higher
 * Elasticsearch 6.x
 * Redis
+* NPM
 
 ### Environment
 
@@ -133,12 +134,12 @@ The following environment variables are used to run the application:
 
 ### Setup
 
-As the root user, install pip, virtualenv and needed libraries:
+As the root user, install pip, virtualenv, NPM and other needed libraries:
 
 ```
 apt-get update
 apt-get upgrade
-apt-get install build-essential gcc gettext python3-dev
+apt-get install build-essential gcc gettext python3-dev npm
 wget https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py
 rm get-pip.py
@@ -202,6 +203,12 @@ Clone the repository and go to its directory:
 ```
 git clone https://github.com/CCA-Public/dip-access-interface
 cd dip-access-interface
+```
+
+Install the front-end dependencies:
+
+```
+npm install
 ```
 
 Create a Python virtual environment and install the application requirements:
