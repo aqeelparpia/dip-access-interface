@@ -134,12 +134,12 @@ The following environment variables are used to run the application:
 
 ### Setup
 
-As the root user, install pip, virtualenv, NPM and other needed libraries:
+As the root user, install pip, virtualenv and other needed libraries:
 
 ```
 apt-get update
 apt-get upgrade
-apt-get install build-essential gcc gettext python3-dev npm
+apt-get install build-essential gcc gettext python3-dev
 wget https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py
 rm get-pip.py
@@ -205,18 +205,14 @@ git clone https://github.com/CCA-Public/dip-access-interface
 cd dip-access-interface
 ```
 
-Install the front-end dependencies:
-
-```
-npm install
-```
-
-Create a Python virtual environment and install the application requirements:
+Create a Python virtual environment and install the application dependencies:
 
 ```
 virtualenv venv -p python3  
 source venv/bin/activate  
 pip install -r requirements.txt
+nodeenv --python-virtualenv
+npm install
 ```
 
 Export the environment variables to run the `manage.py` commands:
