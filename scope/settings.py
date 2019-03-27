@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
     'django_celery_results',
     'widget_tweaks',
+    'compressor',
 
     'dips.apps.DipsConfig',
     'search.apps.SearchConfig',
@@ -152,6 +153,18 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'scope', 'static'),
+]
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+# Compress
+
+COMPRESS_OFFLINE = not DEBUG
+COMPRESS_PRECOMPILERS = [
+    ('text/x-scss', 'sassc {infile} {outfile}'),
 ]
 
 # Media
